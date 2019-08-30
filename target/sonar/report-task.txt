@@ -2,5 +2,5 @@ projectKey=co.vinod:springboot-test
 serverUrl=http://localhost:9000
 serverVersion=7.9.1.27448
 dashboardUrl=http://localhost:9000/dashboard?id=co.vinod%3Aspringboot-test
-ceTaskId=AWzjdif1q32tcvX6W01m
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWzjdif1q32tcvX6W01m
+ceTaskId=AWzjeviZq32tcvX6W01n
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWzjeviZq32tcvX6W01n
