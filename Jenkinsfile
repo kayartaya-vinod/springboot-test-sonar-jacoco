@@ -4,7 +4,7 @@ pipeline {
         maven 'maven-352'
         jdk 'jdk-8'
     }
-    stages {
+    steps {
 	    stage('SCM checkout') {
 			git 'https://github.com/kayartaya-vinod/springboot-test-sonar-jacoco'
 	    }
