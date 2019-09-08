@@ -1,17 +1,11 @@
 node {
-    agent any
-    tools {
-        maven 'maven-361'
-        jdk 'jdk-8'
+    stage('SCM checkout') {
+		git 'https://github.com/kayartaya-vinod/springboot-test-sonar-jacoco'
     }
-    stages {
-    	stage('SCM checkout') {
-			git 'https://github.com/kayartaya-vinod/springboot-test-sonar-jacoco'
-	    }
-        stage ('Build') {
-            steps {
-            	sh 'mvn clean package'
-            }
-		}
+
+	stage('Compile and package') {
+		// get maven home path
+		def mvnHome = tool name: 'maven-352', type: 'maven'
+		sh "${mvnHome}/bin/mvn package"
 	}
 }
