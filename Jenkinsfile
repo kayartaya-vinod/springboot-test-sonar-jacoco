@@ -28,7 +28,11 @@ node {
 	}
 	stage('Deploy service'){
 		sh "lsof -ti:8899 | xargs kill"
-		sh "java -jar -Dserver.port=8899 target/springboot-test.jar & > /dev/null"
+		// sh "java -jar -Dserver.port=8899 target/springboot-test.jar > /dev/null"
+		// sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
+        withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+            sh "nohup mvn spring-boot:run -Dserver.port=8899 &"
+        } 
 	}
 
 
