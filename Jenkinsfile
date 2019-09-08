@@ -31,7 +31,7 @@ node {
 		// sh "java -jar -Dserver.port=8899 target/springboot-test.jar > /dev/null"
 		// sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid || kill -KILL \$pid"
         withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-            sh "nohup mvn spring-boot:run -Dserver.port=8899 &"
+            sh "nohup mvn spring-boot:run -Dserver.port=8899 < /dev/null"
         } 
 	}
 
