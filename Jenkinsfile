@@ -28,8 +28,7 @@ node {
 	}
 	*/
 	stage('Docker image build'){
-	    docker {
-	        
+	    script {
 	        echo "docker building image..."
 	    }
 
