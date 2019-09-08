@@ -27,18 +27,9 @@ node {
 		}
 	}
 	stage('Docker image') {
-		steps {
-			script {
-				docker.build("hello-rest-service")
-			}
-		}
+		sh "docker build -f Dockerfile -t springboot-test ."
     }
     stage ('Docker deploy') {
-    	steps {
-    		sh 'docker rm -f hello-rest-service'
-    		script {
-    			docker.image("hello-rest-service").run('-p 8899:8899 --restart=always --name hello-rest-service')
-    		}
-    	}
+    	sh "docker run -t --name springboot-test -p 8899:8899 springboot-test"
     }
 }
