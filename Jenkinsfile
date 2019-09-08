@@ -1,4 +1,5 @@
 node {
+	/*
     stage('SCM checkout') {
 		git 'https://github.com/kayartaya-vinod/springboot-test-sonar-jacoco'
     }
@@ -25,4 +26,13 @@ node {
 			}		    
 		}
 	}
+	*/
+	stage('Docker image build'){
+	    step {
+	        
+	        echo "docker building image..."
+	    }
+
+	}
+
 }
