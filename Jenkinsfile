@@ -29,7 +29,7 @@ node {
 	}
 	*/
 	stage('Docker image build'){
-		sh "docker build -u jenkins:GID -t springboot-test -f Dockerfile springboot-test ."
+		sh "/usr/local/bin/docker build -u jenkins:GID -t springboot-test -f Dockerfile springboot-test ."
 	}
 
 }
