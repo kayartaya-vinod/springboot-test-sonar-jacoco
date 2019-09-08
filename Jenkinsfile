@@ -32,7 +32,7 @@ node {
 		//sh "lsof -ti:8899 | xargs kill"
 	    //echo "mvn spring-boot:run" | at now + 1 minutes
 	    sh "chmod u+x deploy.sh"
-	    sh "deploy.sh"
+	    sh "./deploy.sh"
 	}
 
 
