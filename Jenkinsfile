@@ -10,8 +10,11 @@ node {
 		sh "${mvnHome}/bin/mvn package"
 	}
 	stage('SonarQube analysis'){
-	    def mvnHome = tool name: 'maven-352', type: 'maven'
-	    sh "${mvnHome}/bin/mvn sonar:sonar"
+	    withSonarQubeEnv('sonar-server'){
+	        def mvnHome = tool name: 'maven-352', type: 'maven'
+	    	sh "${mvnHome}/bin/mvn sonar:sonar"
+	    }
+
 	}
 	stage('SonarQube quality gate'){
 		withSonarQubeEnv('sonar-server') {
