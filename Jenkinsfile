@@ -14,12 +14,15 @@ node {
 	    sh "${mvnHome}/bin/mvn sonar:sonar"
 	}
 	stage('SonarQube quality gate'){
-	    timeout(time: 1, unit: 'HOURS'){
-			def qg = waitForQualityGate() 
-	        if(qg.status != 'OK'){
-				error "Pipeline aborted due to quality gate failure: ${qg.status}"
-			}
+		withSonarQubeEnv('sonar-server') {
+		    timeout(time: 1, unit: 'HOURS'){
+				def qg = waitForQualityGate() 
+		        if(qg.status != 'OK'){
+					error "Pipeline aborted due to quality gate failure: ${qg.status}"
+				}
+			}		    
 		}
+
 	}
 
 }
