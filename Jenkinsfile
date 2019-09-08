@@ -31,9 +31,13 @@ node {
 	stage('Docker image') {
 		//def dockerHome = tool name: 'Docker'
 		//sh "sudo ${dockerHome}/bin/docker build -f Dockerfile -t springboot-test ."
-		script {
-			docker.build("springboot-test")
+		steps {
+		    script {
+				docker.build("springboot-test")
+			} 
 		}
+
+		
     }
     /*
     stage ('Docker deploy') {
