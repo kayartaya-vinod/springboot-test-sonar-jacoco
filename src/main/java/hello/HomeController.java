@@ -19,11 +19,11 @@ public class HomeController {
 	// this is a dummy comment
 	@GetMapping("/{name}")
 	public Map<String, String> greeting(@PathVariable String name) {
-		int x, y;
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("message", String.format("Hello, %s!", name));
-		m.put("time", new Date().toString());
-		return m;
+		int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+		Map<String, String> msg = new HashMap<String, String>();
+		msg.put("message", String.format("Hello, %s!", name));
+		msg.put("time", new Date().toString());
+		return msg;
 	}
 
 }
