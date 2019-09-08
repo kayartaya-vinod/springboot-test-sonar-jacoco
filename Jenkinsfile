@@ -28,7 +28,7 @@ node {
 	}
 	stage('Deploy service'){
 		sh "lsof -ti:8899 | xargs kill"
-		sh "java -jar -Dserver.port=8899 target/springboot-test.jar > /dev/null"
+		sh "java -jar -Dserver.port=8899 target/springboot-test.jar & > /dev/null"
 	}
 
 
