@@ -16,10 +16,10 @@ public class HomeController {
 		return "Hello World";
 	}
 
-	// this is a dummy comment
 	@GetMapping("/{name}")
 	public Map<String, String> greeting(@PathVariable String name) {
-		int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
+		// introduce code smells so that quality drops from 'A' to 'B'
+		// int a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z;
 		Map<String, String> msg = new HashMap<String, String>();
 		msg.put("message", String.format("Hello, %s!", name));
 		msg.put("time", new Date().toString());
