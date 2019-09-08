@@ -27,9 +27,9 @@ node {
 		}
 	}
 	stage('Docker image') {
-		sh "docker build -f Dockerfile -t springboot-test ."
+		sh "/usr/local/bin/docker build -f Dockerfile -t springboot-test ."
     }
     stage ('Docker deploy') {
-    	sh "docker run -t --name springboot-test -p 8899:8899 springboot-test"
+    	sh "/usr/local/bin/docker run -t --name springboot-test -p 8899:8899 springboot-test"
     }
 }
