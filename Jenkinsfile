@@ -29,7 +29,7 @@ node {
 	}
 	*/
 	stage('Docker image build'){
-		sh "/usr/local/bin/docker build -t springboot-test -f Dockerfile springboot-test ."
+		sh "/usr/local/bin/docker build -t springboot-test ."
 	}
 
 }
