@@ -25,7 +25,20 @@ node {
 				}
 			}		    
 		}
-
 	}
-
+	stage('Docker image') {
+		steps {
+			script {
+				docker.build("hello-rest-service")
+			}
+		}
+    }
+    stage ('Docker deploy') {
+    	steps {
+    		sh 'docker rm -f hello-rest-service'
+    		script {
+    			docker.image("hello-rest-service").run('-p 8899:8899 --restart=always --name hello-rest-service')
+    		}
+    	}
+    }
 }
