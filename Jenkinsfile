@@ -28,6 +28,11 @@ node {
 		}
 	}
 	*/
+	stage('Deploy service'){
+		sh "lsof -ti:3000 | xargs kill"
+	    sh "java -jar -Dserver.port=8899 target/springboot-test.jar &"
+	}
+
 	stage('Docker image build'){
 		sh "sudo usermod -a -G /usr/local/bin/docker $USER build -t springboot-test ."
 	}
