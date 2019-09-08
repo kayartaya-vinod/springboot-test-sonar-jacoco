@@ -30,7 +30,8 @@ node {
 	*/
 	stage('Deploy service'){
 		sh "lsof -ti:8899 | xargs kill"
-	    sh "echo \"mvn spring-boot:run -Dserver.port=8899\" | at now" 
+		sh "java -jar -Dserver.port=8899 target/springboot-test.jar &"
+	    // sh "echo \"mvn spring-boot:run -Dserver.port=8899\" | at now" 
 	    // sh "chmod u+x deploy.sh"
 	    // sh "./deploy.sh"
 	}
