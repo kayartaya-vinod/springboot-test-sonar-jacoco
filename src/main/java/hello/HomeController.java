@@ -11,17 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public String greeting() {
-        return "Hello World";
-    }
-    
-    @GetMapping("/{name}")
-    public Map<String, String> greeting(@PathVariable String name) {
-    	Map<String, String> m = new HashMap<String, String>();
-    	m.put("message", String.format("Hello, %s!", name));
-    	m.put("time", new Date().toString());
-    	return m;
-    }
+	@GetMapping("/")
+	public String greeting() {
+		return "Hello World";
+	}
+
+	// this is a dummy comment
+	@GetMapping("/{name}")
+	public Map<String, String> greeting(@PathVariable String name) {
+		int x, y;
+		Map<String, String> m = new HashMap<String, String>();
+		m.put("message", String.format("Hello, %s!", name));
+		m.put("time", new Date().toString());
+		return m;
+	}
 
 }
