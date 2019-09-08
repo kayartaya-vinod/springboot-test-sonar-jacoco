@@ -9,7 +9,6 @@ node {
 		def mvnHome = tool name: 'maven-352', type: 'maven'
 		sh "${mvnHome}/bin/mvn package"
 	}
-	/*
 	stage('SonarQube analysis'){
 	    withSonarQubeEnv('sonar-server'){
 	        def mvnHome = tool name: 'maven-352', type: 'maven'
@@ -27,13 +26,9 @@ node {
 			}		    
 		}
 	}
-	*/
 	stage('Deploy service'){
 		sh "lsof -ti:8899 | xargs kill"
-		sh "java -jar -Dserver.port=8899 target/springboot-test.jar &"
-	    // sh "echo \"mvn spring-boot:run -Dserver.port=8899\" | at now" 
-	    // sh "chmod u+x deploy.sh"
-	    // sh "./deploy.sh"
+		sh "java -jar -Dserver.port=8899 target/springboot-test.jar > /dev/null"
 	}
 
 
