@@ -29,10 +29,7 @@ node {
 	}
 	*/
 	stage('Docker image build'){
-	    script {
-	    	echo "docker building image..."
-	    	docker.build('springboot-test')
-	    }
+		sh "docker build -u jenkins:GID -t springboot-test -f Dockerfile springboot-test ."
 	}
 
 }
