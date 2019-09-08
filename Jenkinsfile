@@ -1,5 +1,5 @@
 node {
-	/*
+	
     stage('SCM checkout') {
 		git 'https://github.com/kayartaya-vinod/springboot-test-sonar-jacoco'
     }
@@ -9,6 +9,7 @@ node {
 		def mvnHome = tool name: 'maven-352', type: 'maven'
 		sh "${mvnHome}/bin/mvn package"
 	}
+	/*
 	stage('SonarQube analysis'){
 	    withSonarQubeEnv('sonar-server'){
 	        def mvnHome = tool name: 'maven-352', type: 'maven'
@@ -29,9 +30,9 @@ node {
 	*/
 	stage('Docker image build'){
 	    script {
-	        echo "docker building image..."
+	    	echo "docker building image..."
+	    	docker.build('springboot-test')
 	    }
-
 	}
 
 }
