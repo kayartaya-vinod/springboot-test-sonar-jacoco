@@ -29,7 +29,7 @@ node {
 	}
 	*/
 	stage('Docker image build'){
-		sh "/usr/local/bin/docker build -t springboot-test ."
+		sh "sudo usermod -a -G /usr/local/bin/docker $USER build -t springboot-test ."
 	}
 
 }
